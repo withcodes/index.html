@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff8fab">
+<title>For Paneer Momo 🥟</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;min-height:100%;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  body{
+    overflow-x:hidden;
+    color:#4a2632;
+    background:
+      radial-gradient(circle at 15% 15%,rgba(255,255,255,.8),transparent 25%),
+      radial-gradient(circle at 85% 80%,rgba(255,255,255,.55),transparent 30%),
+      linear-gradient(145deg,#ffd6e0 0%,#ffc2d1 45%,#f8b7d0 100%);
+  }
+  .page{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:22px;position:relative}
+  .card{
+    width:min(470px,100%);
+    min-height:680px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.65);
+    border-radius:34px;
+    padding:34px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:rgba(255,255,255,.28);
+    backdrop-filter:blur(18px);
+    box-shadow:0 25px 70px rgba(120,45,75,.18);
+  }
+  .screen{display:none;width:100%;animation:in .55s ease}
+  .screen.active{display:block}
+  @keyframes in{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#9b5269;margin-bottom:14px}
+  h1{font-size:clamp(38px,11vw,62px);line-height:.98;letter-spacing:-2px;margin-bottom:18px}
+  h2{font-size:clamp(29px,8vw,43px);line-height:1.05;letter-spacing:-1px;margin-bottom:18px}
+  p{font-size:17px;line-height:1.65;color:#694652}
+  .momo{
+    width:170px;height:170px;margin:0 auto 28px;position:relative;
+    display:grid;place-items:center;font-size:92px;
+    border-radius:50%;
+    background:rgba(255,255,255,.55);
+    box-shadow:0 18px 45px rgba(135,54,81,.16);
+    animation:float 3.2s ease-in-out infinite;
+  }
+  @keyframes float{50%{transform:translateY(-10px) rotate(2deg)}}
+  .buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  button{
+    border:0;cursor:pointer;padding:14px 22px;border-radius:999px;
+    font-size:15px;font-weight:800;transition:.2s ease;
+    box-shadow:0 8px 22px rgba(130,50,75,.13)
+  }
+  .primary{background:#fff;color:#d64f78}
+  .pink{background:#e85d83;color:#fff}
+  button:hover{transform:translateY(-3px) scale(1.02)}
+  .tiny{font-size:12px;margin-top:18px;opacity:.72}
+  .message{
+    margin:22px 0 0;padding:20px;border-radius:22px;text-align:left;
+    background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.65)
+  }
+  .message strong{display:block;margin-bottom:8px;color:#b63d61}
+  .question{font-size:20px;font-weight:750;margin-top:8px}
+  .no{position:relative}
+  .final-heart{font-size:76px;margin-bottom:10px;animation:pulse 1.2s infinite}
+  @keyframes pulse{50%{transform:scale(1.12)}}
+  .signature{margin-top:25px;font-weight:800;color:#a83f5f}
+  .dots{position:absolute;bottom:18px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+  .dot{width:7px;height:7px;border-radius:50%;background:rgba(120,50,75,.2)}
+  .dot.on{width:22px;border-radius:10px;background:#df5d80}
+  .floaters span{position:fixed;bottom:-30px;font-size:22px;opacity:.55;animation:rise linear infinite;pointer-events:none}
+  @keyframes rise{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+  @media(max-height:740px){.card{min-height:620px;padding:25px 20px}.momo{width:130px;height:130px;font-size:70px}}
+</style>
+</head>
+<body>
+<div class="floaters" aria-hidden="true">
+  <span style="left:8%;animation-duration:9s;animation-delay:0s">♡</span>
+  <span style="left:23%;animation-duration:12s;animation-delay:2s">🥟</span>
+  <span style="left:47%;animation-duration:10s;animation-delay:4s">♡</span>
+  <span style="left:68%;animation-duration:13s;animation-delay:1s">✨</span>
+  <span style="left:88%;animation-duration:11s;animation-delay:5s">♡</span>
+</div>
+
+<main class="page">
+  <section class="card">
+
+    <div class="screen active" data-screen="0">
+      <div class="momo">🥟</div>
+      <div class="eyebrow">A tiny website for</div>
+      <h1>Paneer Momo<br>❤️</h1>
+      <p>Okay… I made something for you.<br>Don't overthink it. Just press the button. 👀</p>
+      <div class="buttons"><button class="pink" onclick="next()">Open it ✨</button></div>
+      <p class="tiny">Warning: curiosity may cause unexpected smiling. 😂</p>
+    </div>
+
+    <div class="screen" data-screen="1">
+      <div class="momo">🚨🥟</div>
+      <div class="eyebrow">Breaking news</div>
+      <h2>Paneer Momo detected!</h2>
+      <p>Congratulations 🎉 You clicked the button.<br>Your curiosity has now been officially confirmed. 😂</p>
+      <div class="message">
+        <strong>Important notice:</strong>
+        <p>Please wait… calculating how much nonsense you can handle. Loading... 99% 🤨</p>
+      </div>
+      <div class="buttons"><button class="pink" onclick="next()">Continue 😌</button></div>
+    </div>
+
+    <div class="screen" data-screen="2">
+      <div class="eyebrow">Very serious question</div>
+      <h2>Are you enjoying this so far? 👀</h2>
+      <p>Choose carefully. One answer may have technical difficulties. 😂</p>
+      <div class="buttons">
+        <button class="pink" onclick="next()">YES 😂❤️</button>
+        <button class="primary no" id="noBtn" onmouseenter="moveNo()" ontouchstart="moveNo(event)" onclick="moveNo(event)">NO 😌</button>
+      </div>
+      <p class="tiny">⚠️ Warning: Don't press NO. It has trust issues and runs away. 😂</p>
+      <p class="tiny">P.S. Yes, I really made a whole website for this. 😭</p>
+    </div>
+
+    <div class="screen" data-screen="3">
+      <div class="momo">🏆</div>
+      <div class="eyebrow">Achievement unlocked</div>
+      <h2>You survived<br>another page! 😂</h2>
+      <p>Still here? Wow… you really decided to see where this nonsense goes. 😭</p>
+      <div class="message">
+        <strong>Official report:</strong>
+        <p>Scientists are still trying to understand your level of randomness. Results are… concerning. 😂</p>
+      </div>
+      <div class="buttons"><button class="pink" onclick="next()">I want results 😭</button></div>
+    </div>
+
+    <div class="screen" data-screen="4">
+      <div class="eyebrow">Okay okay… serious now</div>
+      <h2>Some people are just<br>nice to have around.</h2>
+      <div class="message">
+        <strong>And you are one of them. ❤️</strong>
+        <p>I had a serious message prepared… then I remembered you're Paneer Momo, so obviously I had to add some nonsense first. 😂</p>
+      </div>
+      <p class="tiny">But seriously… somehow talking to you became a nice part of the day. 😌</p>
+      <p class="tiny">And honestly… you being this cute is making it very difficult to stay normal. 🙈❤️</p>
+      <p class="tiny">Don’t worry, I’m only flirting a little. You can handle it. 😌</p>
+      <p class="tiny">Don’t let this compliment go to your head. You already have enough confidence. 😂</p>
+      <div class="buttons"><button class="pink" onclick="next()">Don't get emotional 😭</button></div>
+    </div>
+
+    <div class="screen" data-screen="5">
+      <div class="momo">🤭</div>
+      <div class="eyebrow">One last thing</div>
+      <h2>Actually… I just wanted another button. 😂</h2>
+      <p>I could've simply sent you a message…<br>but where's the fun in that? 😌</p>
+      <div class="message">
+        <strong>Also:</strong>
+        <p>If you're smiling right now, mission successful. If you're not smiling… please pretend. I worked hard. 😂</p>
+      </div>
+      <div class="buttons"><button class="pink" onclick="next()">Okay, show me 😌</button></div>
+      <p class="tiny">No momo was harmed during the making of this website. 🥟😂</p>
+      <p class="tiny">Side effect: you might accidentally realize someone thinks you're pretty special. 👀❤️</p>
+    </div>
+
+    <div class="screen" data-screen="6">
+      <div class="final-heart">🥟❤️</div>
+      <div class="eyebrow">For Paneer Momo</div>
+      <h2>Distance doesn't cancel good vibes.</h2>
+      <p>Wherever you are right now, I hope this little page made you smile for at least a few seconds.</p>
+      <div class="message">
+        <strong>And that's all. 😌</strong>
+        <p>No hidden meaning. No dramatic confession. Just a tiny little corner of the internet made especially for Paneer Momo. ❤️</p>
+      </div>
+      <div class="signature">
+        Now go back to being the same cute-but-annoying person. 😂🥟<br>
+        And yes… you looked pretty cute while reading this. Don't argue. 😌❤️<br>
+        Made just to make Paneer Momo smile. ❤️
+      </div>
+      <div class="buttons"><button class="primary" onclick="restart()">Read again ↻</button></div>
+    </div>
+
+    <div class="dots" id="dots"></div>
+  </section>
+</main>
+
+<script>
+  let current=0;
+  const screens=[...document.querySelectorAll('.screen')];
+  const dots=document.getElementById('dots');
+  screens.forEach((_,i)=>{
+    const d=document.createElement('span');
+    d.className='dot'+(i===0?' on':'');
+    dots.appendChild(d);
+  });
+  function show(i){
+    current=i;
+    screens.forEach((s,n)=>s.classList.toggle('active',n===i));
+    [...dots.children].forEach((d,n)=>d.classList.toggle('on',n===i));
+  }
+  function next(){show(Math.min(current+1,screens.length-1));}
+  function restart(){show(0);}
+  function moveNo(e){
+    if(e){e.preventDefault();e.stopPropagation();}
+    const btn=document.getElementById('noBtn');
+    if(!btn) return false;
+    btn.style.position='fixed';
+    btn.style.zIndex='9999';
+    const pad=20;
+    const maxX=Math.max(pad,window.innerWidth-btn.offsetWidth-pad);
+    const maxY=Math.max(pad,window.innerHeight-btn.offsetHeight-pad);
+    btn.style.left=(pad+Math.random()*(maxX-pad))+'px';
+    btn.style.top=(pad+Math.random()*(maxY-pad))+'px';
+    return false;
+  }
+</script>
+</body>
+</html>
